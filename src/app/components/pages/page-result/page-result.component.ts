@@ -1,0 +1,14 @@
+import { Component } from '@angular/core';
+import { CalculatorResultDetailsComponent } from "../../features/calculator-result-details/calculator-result-details.component";
+import { CalculatorResultComponent } from "../../features/calculator-result/calculator-result.component";
+
+@Component({
+  selector: 'app-page-result',
+  standalone: true,
+  imports: [CalculatorResultComponent, CalculatorResultDetailsComponent],
+  templateUrl: './page-result.component.html',
+  styleUrl: './page-result.component.scss'
+})
+export class PageResultComponent {
+
+}
