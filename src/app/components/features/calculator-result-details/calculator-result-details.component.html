@@ -1,3 +1,5 @@
-<!-- TODO: Figure out how to make an accordion generic -->
-<!-- I assume this component will just generate the title and content of the accordion -->
-<app-accordion></app-accordion>
+<app-accordion [title]="'Testing the title of the accordion'">
+	<!-- Anything inside the accordion will be displayed, when the accordion is unfolded -->
+	<p>This will displayed when accordion is unfolded</p>
+	<h3>Another example</h3>
+</app-accordion>

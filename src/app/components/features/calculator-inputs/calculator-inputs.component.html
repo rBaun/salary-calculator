@@ -1,30 +1,39 @@
 <!-- Reset button -->
-<app-button-reset></app-button-reset>
+<app-button-reset [label]="'buttons.reset' | transloco"></app-button-reset>
 
 <!-- Gross income -->
 <div class="row">
-    <app-input-number></app-input-number>
-    <app-icon-help></app-icon-help>
-    <app-icon-info></app-icon-info>
+	<app-input-number [formControl]="grossIncomeControl"></app-input-number>
+	<app-icon-help
+		[helpText]="'inputs.gross-income.helpText' | transloco"></app-icon-help>
+	<app-icon-info></app-icon-info>
 </div>
 
 <!-- Pension % -->
 <div class="row">
-    <app-input-percentage></app-input-percentage>
-    <app-icon-help></app-icon-help>
-    <app-icon-info></app-icon-info>
+	<app-input-percentage
+		[formControl]="pensionPercentageControl"></app-input-percentage>
+	<app-icon-help
+		[helpText]="
+			'inputs.pension-percentage.helpText' | transloco
+		"></app-icon-help>
+	<app-icon-info></app-icon-info>
 </div>
 
 <!-- Tax deduction -->
 <div class="row">
-    <app-input-number></app-input-number>
-    <app-icon-help></app-icon-help>
-    <app-icon-info></app-icon-info>
+	<app-input-number [formControl]="taxDeductionControl"></app-input-number>
+	<app-icon-help
+		[helpText]="
+			'inputs.tax-deduction.helpText' | transloco
+		"></app-icon-help>
+	<app-icon-info></app-icon-info>
 </div>
 
 <!-- Tax rate -->
 <div class="row">
-    <app-input-percentage></app-input-percentage>
-    <app-icon-help></app-icon-help>
-    <app-icon-info></app-icon-info>
+	<app-input-percentage [formControl]="taxRateControl"></app-input-percentage>
+	<app-icon-help
+		[helpText]="'inputs.tax-rate.helpText' | transloco"></app-icon-help>
+	<app-icon-info></app-icon-info>
 </div>
