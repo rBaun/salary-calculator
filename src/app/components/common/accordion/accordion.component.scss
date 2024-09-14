@@ -1,0 +1,38 @@
+.accordion {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+
+    .accordion-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #ccc;
+
+        &:focus {
+            outline: none;
+            background-color: #e7e7e7;
+        }
+
+        .accordion-arrow {
+            transition: transform 0.3s ease;
+
+            &--open {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .accordion-content {
+        display: none;
+        padding: 10px;
+        background-color: #fff;
+
+        &--open {
+            display: block;
+        }
+    }
+}
