@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
 	styleUrl: './accordion.component.scss',
 })
 export class AccordionComponent {
-	@Input() title = '';
+	@Input({ required: true }) title!: string;
 	protected isOpen = false;
 
 	protected toggle = () => (this.isOpen = !this.isOpen);

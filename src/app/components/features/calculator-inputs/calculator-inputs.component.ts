@@ -26,4 +26,15 @@ export class CalculatorInputsComponent {
 	protected taxDeductionControl = new FormControl();
 	protected pensionPercentageControl = new FormControl();
 	protected taxRateControl = new FormControl();
+
+	protected onResetClick = () => {
+		this.resetInputs();
+	}
+
+	private resetInputs = () => {
+		this.grossIncomeControl.reset();
+		this.taxDeductionControl.reset();
+		this.pensionPercentageControl.reset();
+		this.taxRateControl.reset();
+	}
 }

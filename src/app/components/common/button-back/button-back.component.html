@@ -1,6 +1,8 @@
-<button (click)="backClick.emit()" [disabled]="disable">
-	@if (displayIcon) {
+<button (click)="onBackClick()" [disabled]="disable">
+	@if (display === 'icon' || display === 'both') {
 		<i class="fa fa-arrow-left"></i>
 	}
-	<span>{{ label }}</span>
+	@if (display === 'text' || display === 'both') {
+		<span>{{ label }}</span>
+	}
 </button>

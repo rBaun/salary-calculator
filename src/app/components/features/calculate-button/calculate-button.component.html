@@ -1,3 +1,5 @@
 <!-- Run the calculations! -->
 <app-button-confirm
-	[label]="'buttons.confirm' | transloco"></app-button-confirm>
+	[label]="'buttons.confirm' | transloco"
+	(confirmClick)="onCalculateClick()"
+	routerLink="/calculator/result"></app-button-confirm>

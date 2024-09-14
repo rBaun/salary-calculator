@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
@@ -10,8 +11,11 @@ import { TranslocoModule } from '@jsverse/transloco';
 })
 export class ButtonBackComponent {
 	@Input({ required: true }) label!: string;
-	@Input() displayIcon = false;
+	@Input({ required: true }) backRoute!: string;
+	@Input() display: 'both' | 'icon' | 'text' = 'both';
 	@Input() disable = false;
 
-	@Output() backClick = new EventEmitter<void>();
+	constructor(private router: Router) {}
+
+	protected onBackClick = () => this.router.navigate([this.backRoute]);
 }
