@@ -1,7 +1,33 @@
 {
   "buttons": {
     "back": "Back",
-    "confirm": "Confirm",
+    "confirm": "Calculate my salary",
     "reset": "Reset"
+  },
+  "inputs": {
+    "gross-income": {
+      "label": "Gross income",
+      "placeholder": "Enter your monthly gross income",
+      "helpText": "Earning 10,000 a month + 5% in componensation = 10,000 month",
+      "infoText": "This is your total income before any deductions, but excluding pension contributions"
+    },
+    "pension-percentage": {
+      "label": "Pension %",
+      "placeholder": "Enter your own pension contribution",
+      "helpText": "Typically ranges from 5-15% of your gross income",
+      "infoText": "This is what you contribute to your pension pot each month without any employer contributions"
+    },
+    "tax-deduction": {
+      "label": "Tax deduction",
+      "placeholder": "Enter your tax deduction",
+      "helpText": "You can find this on skat.dk or your payslip",
+      "infoText": "This is the amount of your gross income, which is not taxed"
+    },
+    "tax-rate": {
+      "label": "Tax rate",
+      "placeholder": "Enter your tax rate",
+      "helpText": "You can find your tax rate on skat.dk or your payslip",
+      "infoText": "All earnings above your tax deduction are taxed at 37,06%. Anything above 51.572,5 is taxed at 52,06%."
+    }
   }
 }

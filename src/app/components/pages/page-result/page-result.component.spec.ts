@@ -3,21 +3,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PageResultComponent } from './page-result.component';
 
 describe('PageResultComponent', () => {
-  let component: PageResultComponent;
-  let fixture: ComponentFixture<PageResultComponent>;
+	let component: PageResultComponent;
+	let fixture: ComponentFixture<PageResultComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [PageResultComponent]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [PageResultComponent],
+		}).compileComponents();
 
-    fixture = TestBed.createComponent(PageResultComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(PageResultComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
 });

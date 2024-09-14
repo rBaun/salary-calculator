@@ -12,11 +12,11 @@ export class AccordionComponent {
 	@Input() title = '';
 	protected isOpen = false;
 
-	protected toggle = () => this.isOpen = !this.isOpen;
+	protected toggle = () => (this.isOpen = !this.isOpen);
 
 	protected handleKeydown = (event: KeyboardEvent) => {
 		if (event.key === 'Enter' || event.key === ' ') {
 			this.toggle();
 		}
-	}
+	};
 }
