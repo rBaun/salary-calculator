@@ -1,1 +1,9 @@
-<p>input-percentage works!</p>
+@if (label) {
+	<label for="number-input"></label>
+}
+<input
+	id="number-input"
+	type="number"
+	[formControl]="formControl"
+	[min]="lowestNumber"
+	[max]="highestNumber" />
