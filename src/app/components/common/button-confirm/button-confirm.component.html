@@ -1,1 +1,3 @@
-<p>button-confirm works!</p>
+<button (click)="confirmClick.emit()" [disabled]="disable">
+	<span>{{ label }}</span>
+</button>

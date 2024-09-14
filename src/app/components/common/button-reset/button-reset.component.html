@@ -1,1 +1,8 @@
-<p>button-reset works!</p>
+<button (click)="resetClick.emit()" [disabled]="disable">
+	@if (display === 'icon' || display === 'both') {
+		<i class="fa-solid fa-rotate-right"></i>
+	}
+	@if (display === 'text' || display === 'both') {
+		<span>{{ label }}</span>
+	}
+</button>

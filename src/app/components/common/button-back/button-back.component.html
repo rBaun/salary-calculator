@@ -1,1 +1,6 @@
-<button>{{ 'buttons.back' | transloco }}</button>
+<button (click)="backClick.emit()" [disabled]="disable">
+	@if (displayIcon) {
+		<i class="fa fa-arrow-left"></i>
+	}
+	<span>{{ label }}</span>
+</button>
