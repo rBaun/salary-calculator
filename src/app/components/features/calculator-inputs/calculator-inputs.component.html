@@ -5,7 +5,9 @@
 
 <!-- Gross income -->
 <div class="row">
-	<app-input-number [formControl]="grossIncomeControl"></app-input-number>
+	<app-input-number
+		[label]="'inputs.gross-income.label' | transloco"
+		[formControl]="grossIncomeControl"></app-input-number>
 	<app-icon-help
 		[helpText]="'inputs.gross-income.helpText' | transloco"></app-icon-help>
 	<app-icon-info
@@ -15,6 +17,7 @@
 <!-- Pension % -->
 <div class="row">
 	<app-input-percentage
+		[label]="'inputs.pension-percentage.label' | transloco"
 		[formControl]="pensionPercentageControl"></app-input-percentage>
 	<app-icon-help
 		[helpText]="
@@ -28,7 +31,9 @@
 
 <!-- Tax deduction -->
 <div class="row">
-	<app-input-number [formControl]="taxDeductionControl"></app-input-number>
+	<app-input-number
+		[label]="'inputs.tax-deduction.label' | transloco"
+		[formControl]="taxDeductionControl"></app-input-number>
 	<app-icon-help
 		[helpText]="
 			'inputs.tax-deduction.helpText' | transloco
@@ -41,7 +46,9 @@
 
 <!-- Tax rate -->
 <div class="row">
-	<app-input-percentage [formControl]="taxRateControl"></app-input-percentage>
+	<app-input-percentage
+		[label]="'inputs.tax-rate.label' | transloco"
+		[formControl]="taxRateControl"></app-input-percentage>
 	<app-icon-help
 		[helpText]="'inputs.tax-rate.helpText' | transloco"></app-icon-help>
 	<app-icon-info
