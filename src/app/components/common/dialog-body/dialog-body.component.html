@@ -1,0 +1,257 @@
+<!-- TODO: Create a custom and flexible dialog -->
+<!--
+    I asked copilot to provide me with something that could be of use:
+    - DialogService that can be injected to open a dialog anywhere
+    - DiaglogInput model that can be used to pass data to dialog (this will be used to build the correct dialog)
+    - DialogHeaderComponent, DialogBodyComponent, DialogFooterComponent that can be used to build the dialog
+    - DialogFooterComponent should contain the dialog actions, where dialog-action-button components can be used to create the buttons based on input type
+    - DialogBodyComponent should contain a ng-content to project the dialog content, such that anything can really be projected
+-->
+
+<!-- ?DialogInput -->
+<!-- export interface DialogInput {
+    type: 'info' | 'warning' | 'confirm' | 'save';
+    title: string;
+    content: any; // This will be a component
+    showWarning?: boolean;
+    actions?: { label: string, type: 'confirm' | 'cancel' | 'save' | 'ok' }[];
+  } -->
+
+<!-- ?DialogService -->
+<!-- import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
+import { DialogInput } from './dialog-input.model';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DialogService {
+  private dialogSubject = new Subject<DialogInput>();
+  private dialogResultSubject = new Subject<boolean>();
+
+  openDialog(dialogInput: DialogInput): Observable<boolean> {
+    this.dialogSubject.next(dialogInput);
+    return this.dialogResultSubject.asObservable();
+  }
+
+  getDialogInput(): Observable<DialogInput> {
+    return this.dialogSubject.asObservable();
+  }
+
+  closeDialog(result: boolean) {
+    this.dialogResultSubject.next(result);
+  }
+} -->
+
+<!-- ?DialogComponent -->
+<!-- <div class="dialog-overlay" *ngIf="isOpen" (click)="closeDialog(false)">
+  <div class="dialog-body" (click)="$event.stopPropagation()">
+    <app-dialog-header [title]="dialogInput?.title"></app-dialog-header>
+    <app-dialog-body>
+      <ng-container *ngComponentOutlet="dialogInput?.content"></ng-container>
+    </app-dialog-body>
+    <app-dialog-footer [actions]="dialogInput?.actions" (action)="handleAction($event)"></app-dialog-footer>
+  </div>
+
+  .dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-body {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+import { Component, OnInit } from '@angular/core';
+import { DialogService } from './dialog.service';
+import { DialogInput } from './dialog-input.model';
+
+@Component({
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.scss']
+})
+export class DialogComponent implements OnInit {
+  isOpen: boolean = false;
+  dialogInput: DialogInput;
+
+  constructor(private dialogService: DialogService) {}
+
+  ngOnInit() {
+    this.dialogService.getDialogInput().subscribe((input: DialogInput) => {
+      this.dialogInput = input;
+      this.isOpen = true;
+    });
+  }
+
+  closeDialog(result: boolean) {
+    this.isOpen = false;
+    this.dialogService.closeDialog(result);
+  }
+
+  handleAction(action: string) {
+    if (action === 'confirm' || action === 'save' || action === 'ok') {
+      this.closeDialog(true);
+    } else {
+      this.closeDialog(false);
+    }
+  }
+}
+</div> -->
+
+<!-- ?DialogHeaderComponent -->
+<!-- <div class="dialog-header">
+  <h2>{{ title }}</h2>
+</div>
+
+.dialog-header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+  
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-dialog-header',
+  templateUrl: './dialog-header.component.html',
+  styleUrls: ['./dialog-header.component.scss']
+})
+export class DialogHeaderComponent {
+  @Input() title: string;
+}-->
+
+<!-- ?DialogBodyComponent -->
+<!-- <div class="dialog-body-content">
+  <ng-content></ng-content>
+</div>
+
+.dialog-body-content {
+  margin-bottom: 1rem;
+}
+  
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-dialog-body',
+  templateUrl: './dialog-body.component.html',
+  styleUrls: ['./dialog-body.component.scss']
+})
+export class DialogBodyComponent {}-->
+
+<!-- ?DialogFooterComponent -->
+<!-- <div class="dialog-footer">
+  <ng-container *ngFor="let action of actions">
+    <app-dialog-action-button [label]="action.label" [type]="action.type" (click)="onAction(action.type)"></app-dialog-action-button>
+  </ng-container>
+</div>
+
+.dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+  
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-dialog-footer',
+  templateUrl: './dialog-footer.component.html',
+  styleUrls: ['./dialog-footer.component.scss']
+})
+export class DialogFooterComponent {
+  @Input() actions: { label: string, type: 'confirm' | 'cancel' | 'save' | 'ok' }[];
+  @Output() action = new EventEmitter<string>();
+
+  onAction(actionType: string) {
+    this.action.emit(actionType);
+  }
+}-->
+
+<!-- ?DialogActionButtonComponent -->
+<!-- <button (click)="handleClick()">{{ label }}</button>
+  
+ button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+  
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-dialog-action-button',
+  templateUrl: './dialog-action-button.component.html',
+  styleUrls: ['./dialog-action-button.component.scss']
+})
+export class DialogActionButtonComponent {
+  @Input() label: string;
+  @Input() type: 'confirm' | 'cancel' | 'save' | 'ok';
+  @Output() click = new EventEmitter<void>();
+
+  handleClick() {
+    this.click.emit();
+  }
+}-->
+
+<!-- ?Example from Parent component building input data and opening dialog -->
+<!-- import { Component } from '@angular/core';
+import { DialogService } from './dialog/dialog.service';
+import { DialogInput } from './dialog/dialog-input.model';
+import { CustomContentComponent } from './custom-content/custom-content.component';
+
+@Component({
+  selector: 'app-parent',
+  templateUrl: './parent.component.html',
+  styleUrls: ['./parent.component.scss']
+})
+export class ParentComponent {
+  constructor(private dialogService: DialogService) {}
+
+  openConfirmDialog() {
+    const dialogInput: DialogInput = {
+      type: 'confirm',
+      title: 'Confirm Action',
+      content: CustomContentComponent,
+      showWarning: true,
+      actions: [
+        { label: 'Confirm', type: 'confirm' },
+        { label: 'Cancel', type: 'cancel' }
+      ]
+    };
+
+    this.dialogService.openDialog(dialogInput).subscribe(result => {
+      console.log('Confirm Dialog Result:', result);
+    });
+  }
+
+  openSaveDialog() {
+    const dialogInput: DialogInput = {
+      type: 'save',
+      title: 'Save Changes',
+      content: CustomContentComponent,
+      showWarning: false,
+      actions: [
+        { label: 'Save', type: 'save' },
+        { label: 'Cancel', type: 'cancel' }
+      ]
+    };
+
+    this.dialogService.openDialog(dialogInput).subscribe(result => {
+      console.log('Save Dialog Result:', result);
+    });
+  }
+} -->
