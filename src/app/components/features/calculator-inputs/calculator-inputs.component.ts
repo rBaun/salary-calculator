@@ -29,12 +29,12 @@ export class CalculatorInputsComponent {
 
 	protected onResetClick = () => {
 		this.resetInputs();
-	}
+	};
 
 	private resetInputs = () => {
 		this.grossIncomeControl.reset();
 		this.taxDeductionControl.reset();
 		this.pensionPercentageControl.reset();
 		this.taxRateControl.reset();
-	}
+	};
 }

@@ -11,18 +11,16 @@ import { ButtonConfirmComponent } from '../../common/button-confirm/button-confi
 	styleUrl: './calculate-button.component.scss',
 })
 export class CalculateButtonComponent {
-
 	constructor(private router: Router) {}
-
 
 	protected onCalculateClick = () => {
 		this.calculateSalary();
-	}
+	};
 
 	private calculateSalary = () => {
 		// Validate salary inputs
 
 		// Navigate to result window (/calculator/results)
 		this.router.navigate(['/calculator/result']);
-	}
+	};
 }

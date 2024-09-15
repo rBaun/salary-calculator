@@ -1,25 +1,25 @@
 .input-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }
 
 .input-container {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    width: 50%;
-    gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 50%;
+	gap: 1rem;
 }
 
 .input {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 app-icon-help,
 app-icon-info {
-    margin-left: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	margin-left: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

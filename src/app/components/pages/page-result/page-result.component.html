@@ -1,10 +1,19 @@
-<!-- Back to Calculator -->
-<app-button-back
-	[label]="'buttons.back' | transloco"
-	[backRoute]="'/calculator'"></app-button-back>
+<div class="main-container">
+	<!-- Back to Calculator -->
+	<section class="container">
+		<app-button-back
+			[label]="'buttons.back' | transloco"
+			[display]="'icon'"
+			[backRoute]="'/calculator'"></app-button-back>
+	</section>
 
-<!-- Result (net income) -->
-<app-calculator-result></app-calculator-result>
+	<!-- Result (net income) -->
+	<section class="container">
+		<app-calculator-result></app-calculator-result>
+	</section>
 
-<!-- Calculations of Result -->
-<app-calculator-result-details></app-calculator-result-details>
+	<!-- Calculations of Result -->
+	<section class="container">
+		<app-calculator-result-details></app-calculator-result-details>
+	</section>
+</div>

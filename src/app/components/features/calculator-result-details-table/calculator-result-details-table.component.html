@@ -1,0 +1,24 @@
+<table class="details-table">
+	<tr>
+		<td>{{ 'results.details.gross-income' | transloco }}</td>
+		<td>
+			{{ grossIncome | currency: 'DKK' : 'symbol' : '1.2-2' }}
+		</td>
+	</tr>
+	<tr>
+		<td>{{ 'results.details.pension' | transloco }}</td>
+		<td>
+			{{ retirement | currency: 'DKK' : 'symbol' : '1.2-2' }}
+		</td>
+	</tr>
+	<tr>
+		<td>{{ 'results.details.taxes' | transloco }}</td>
+		<td>{{ taxes | currency: 'DKK' : 'symbol' : '1.2-2' }}</td>
+	</tr>
+	<tr>
+		<td>{{ 'results.details.remainder' | transloco }}</td>
+		<td>
+			{{ remainder | currency: 'DKK' : 'symbol' : '1.2-2' }}
+		</td>
+	</tr>
+</table>
