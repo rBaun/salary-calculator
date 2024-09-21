@@ -1,0 +1,10 @@
+@if (data.label) {
+	<label for="number-input">{{ data.label }}</label>
+	<br />
+}
+<input
+	id="number-input"
+	type="number"
+	[formControl]="data.formControl"
+	[min]="lowestNumber"
+	[max]="highestNumber" />

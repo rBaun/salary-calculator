@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ButtonModel } from '../models/button.model';
 
 @Component({
 	selector: 'app-button-reset',
@@ -8,9 +9,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 	styleUrl: './button-reset.component.scss',
 })
 export class ButtonResetComponent {
-	@Input({ required: true }) label!: string;
-	@Input() display: 'both' | 'icon' | 'text' = 'both';
-	@Input() disable = false;
-
+	@Input({ required: true }) data!: ButtonModel;
 	@Output() resetClick = new EventEmitter<void>();
 }

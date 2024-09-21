@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ButtonModel } from '../models/button.model';
 
 @Component({
 	selector: 'app-button-confirm',
@@ -8,8 +9,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 	styleUrl: './button-confirm.component.scss',
 })
 export class ButtonConfirmComponent {
-	@Input({ required: true }) label!: string;
-	@Input() disable = false;
-
+	@Input({ required: true }) data!: ButtonModel;
 	@Output() confirmClick = new EventEmitter<void>();
 }

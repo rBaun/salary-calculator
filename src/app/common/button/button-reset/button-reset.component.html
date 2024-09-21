@@ -1,0 +1,8 @@
+<button (click)="resetClick.emit()" [disabled]="data.disable">
+	@if (data.display === 'icon' || data.display === 'both') {
+		<i class="fa-solid fa-rotate-right"></i>
+	}
+	@if (data.display === 'text' || data.display === 'both') {
+		<span>{{ data.label }}</span>
+	}
+</button>

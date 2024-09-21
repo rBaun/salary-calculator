@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputModel } from '../models/input.model';
 
 @Component({
 	selector: 'app-input-percentage',
@@ -9,10 +10,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 	styleUrl: './input-percentage.component.scss',
 })
 export class InputPercentageComponent {
-	@Input({ required: true }) formControl!: FormControl;
-	@Input() label = '';
-	@Input() placeholder = '';
-	@Input() disable = false;
-	@Input() lowestNumber = 0;
-	@Input() highestNumber = 100;
+	@Input({ required: true }) data!: InputModel;
+	
+	protected lowestNumber = 0;
+	protected highestNumber = 100;
 }

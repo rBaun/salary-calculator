@@ -1,0 +1,9 @@
+@switch (data.type) {
+	@case ('number') {
+		<app-input-number [data]="data"></app-input-number>
+	}
+
+	@case ('percentage') {
+		<app-input-percentage [data]="data"></app-input-percentage>
+	}
+}

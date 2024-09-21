@@ -1,0 +1,13 @@
+@switch (data.type) {
+	@case ('back') {
+		<app-button-back [data]="data"></app-button-back>
+	}
+
+	@case ('confirm') {
+		<app-button-confirm [data]="data"></app-button-confirm>
+	}
+
+	@case ('reset') {
+		<app-button-reset [data]="data"></app-button-reset>
+	}
+}

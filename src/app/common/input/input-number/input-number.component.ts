@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputModel } from '../models/input.model';
 
 @Component({
 	selector: 'app-input-number',
@@ -9,9 +10,5 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 	styleUrl: './input-number.component.scss',
 })
 export class InputNumberComponent {
-	@Input({ required: true }) formControl!: FormControl;
-	@Input() label = '';
-	@Input() placeholder = '';
-	@Input() disable = false;
-	@Input() lowestNumber = 0;
+	@Input({ required: true }) data!: InputModel;
 }

@@ -1,0 +1,13 @@
+@switch (data.type) {
+	@case ('cog') {
+		<app-icon-cog></app-icon-cog>
+	}
+
+	@case ('help') {
+		<app-icon-help [helpText]="data.helpText!"></app-icon-help>
+	}
+
+	@case ('info') {
+		<app-icon-info [infoText]="data.infoText!"></app-icon-info>
+	}
+}
