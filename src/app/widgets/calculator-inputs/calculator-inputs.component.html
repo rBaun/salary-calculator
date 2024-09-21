@@ -1,0 +1,100 @@
+<div class="row right">
+	<!-- Reset button -->
+	<app-button [data]="resetButtonData" (click)="onResetClick()"></app-button>
+</div>
+
+<div class="input-wrapper">
+	<div class="input-container">
+		<!-- Gross income -->
+		<div class="row">
+			<app-input
+				class="input"
+				[data]="{
+					type: 'number',
+					label: 'inputs.gross-income.label' | transloco,
+					formControl: grossIncomeControl,
+				}"></app-input>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'help',
+					helpText: 'inputs.gross-income.helpText' | transloco,
+				}"></app-icon>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'info',
+					infoText: 'inputs.gross-income.infoText' | transloco,
+				}"></app-icon>
+		</div>
+
+		<!-- Pension % -->
+		<div class="row">
+			<app-input
+				class="input"
+				[data]="{
+					type: 'percentage',
+					label: 'inputs.pension-percentage.label' | transloco,
+					formControl: pensionPercentageControl,
+				}"></app-input>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'help',
+					helpText: 'inputs.pension-percentage.helpText' | transloco,
+				}"></app-icon>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'info',
+					infoText: 'inputs.pension-percentage.infoText' | transloco,
+				}"></app-icon>
+		</div>
+
+		<!-- Tax deduction -->
+		<div class="row">
+			<app-input
+				class="input"
+				[data]="{
+					type: 'number',
+					label: 'inputs.tax-deduction.label' | transloco,
+					formControl: taxDeductionControl,
+				}"></app-input>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'help',
+					helpText: 'inputs.tax-deduction.helpText' | transloco,
+				}"></app-icon>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'info',
+					infoText: 'inputs.tax-deduction.infoText | transloco',
+				}"></app-icon>
+		</div>
+
+		<!-- Tax rate -->
+		<div class="row">
+			<app-input
+				class="input"
+				[data]="{
+					type: 'percentage',
+					label: 'inputs.tax-rate.label' | transloco,
+					formControl: taxRateControl,
+				}"></app-input>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'help',
+					helpText: 'inputs.tax-rate.helpText' | transloco,
+				}"></app-icon>
+			<app-icon
+				class="tooltip"
+				[data]="{
+					type: 'info',
+					infoText: 'inputs.tax-rate.infoText' | transloco,
+				}"></app-icon>
+		</div>
+	</div>
+</div>

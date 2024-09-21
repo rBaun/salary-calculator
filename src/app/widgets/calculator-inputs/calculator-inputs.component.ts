@@ -1,21 +1,18 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { TranslocoModule } from '@jsverse/transloco';
-import { ButtonResetComponent } from '../../common/button-reset/button-reset.component';
-import { IconHelpComponent } from '../../common/icon-help/icon-help.component';
-import { IconInfoComponent } from '../../common/icon-info/icon-info.component';
-import { InputNumberComponent } from '../../common/input-number/input-number.component';
-import { InputPercentageComponent } from '../../common/input-percentage/input-percentage.component';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
+import { ButtonComponent } from '../../common/button/button.component';
+import { ButtonModel } from '../../common/button/models/button.model';
+import { IconComponent } from '../../common/icon/icon.component';
+import { InputComponent } from '../../common/input/input.component';
 
 @Component({
 	selector: 'app-calculator-inputs',
 	standalone: true,
 	imports: [
-		InputNumberComponent,
-		InputPercentageComponent,
-		IconHelpComponent,
-		IconInfoComponent,
-		ButtonResetComponent,
+		InputComponent,
+		IconComponent,
+		ButtonComponent,
 		TranslocoModule,
 	],
 	templateUrl: './calculator-inputs.component.html',
@@ -27,6 +24,16 @@ export class CalculatorInputsComponent {
 	protected pensionPercentageControl = new FormControl();
 	protected taxRateControl = new FormControl();
 
+	protected resetButtonData!: ButtonModel;
+
+	constructor(private translocoService: TranslocoService) {
+		this.setupResetButton();
+	}
+
+	public canSave = (): boolean => {
+		return true;
+	};
+
 	protected onResetClick = () => {
 		this.resetInputs();
 	};
@@ -37,4 +44,12 @@ export class CalculatorInputsComponent {
 		this.pensionPercentageControl.reset();
 		this.taxRateControl.reset();
 	};
+
+	private setupResetButton = () => {
+		this.resetButtonData = {
+			label: this.translocoService.translate('buttons.reset'),
+			type: 'reset',
+			display: 'both',
+		};
+	}
 }

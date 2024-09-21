@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TranslocoModule } from '@jsverse/transloco';
-import { ButtonConfirmComponent } from '../../common/button-confirm/button-confirm.component';
+import { TranslocoPipe } from '@jsverse/transloco';
+import { ButtonComponent } from '../../common/button/button.component';
 
 @Component({
 	selector: 'app-calculate-button',
 	standalone: true,
-	imports: [ButtonConfirmComponent, TranslocoModule],
+	imports: [ButtonComponent, TranslocoPipe],
 	templateUrl: './calculate-button.component.html',
 	styleUrl: './calculate-button.component.scss',
 })
