@@ -1,10 +1,7 @@
 <div class="main-container">
 	<!-- Back to Calculator -->
 	<section class="container">
-		<app-button-back
-			[label]="'buttons.back' | transloco"
-			[display]="'icon'"
-			[backRoute]="'/calculator'"></app-button-back>
+		<app-button [data]="backButtonData"></app-button>
 	</section>
 
 	<!-- Result (net income) -->

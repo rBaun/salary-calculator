@@ -4,6 +4,7 @@ import {
 	OnInit
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TranslocoService } from '@jsverse/transloco';
 import { ContainerComponent } from './common/container/container.component';
 import { ContainerModel } from './common/container/models/container.model';
 import { DialogHostDirective } from './common/dialog/dialog-host.directive';
@@ -26,7 +27,7 @@ import { IconCogComponent } from './common/icon/icon-cog/icon-cog.component';
 export class AppComponent implements OnInit {
 	protected containerInput!: ContainerModel;
 
-	constructor(public dialogService: DialogService) {}
+	constructor(public dialogService: DialogService, private translocoService: TranslocoService) {}
 
 	ngOnInit(): void {
 		this.setupContainerInput();
@@ -34,7 +35,7 @@ export class AppComponent implements OnInit {
 
 	private setupContainerInput = (): void => {
 		this.containerInput = {
-			title: 'Salary Calculator',
+			title: this.translocoService.translate('title'),
 			enableSettings: true,
 		};
 	};

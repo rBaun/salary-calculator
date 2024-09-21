@@ -10,7 +10,7 @@ There are 3 types of components:
   * A common component is a component that visually presents something.
   * Only contains styling for the element. NOT STRUCTURE
   * No logic is applied. Inputs, Outputs and constructors are acceptable.
-* feature
+* widget
   * Uses common components to define a feature
   * No styling for the element. ONLY STRUCTURE for the feature
   * Logic is used here to define the specific feature and how it is implemented
@@ -21,16 +21,22 @@ There are 3 types of components:
 
 The component structure comes with a bunch of benefits, but mainly it allows for quick and easy maintenance. In order to make the project less error-prone, then the features/page components should implement logic in a declarative way using rxjs functions. This will set the project up for the most optimal performance and fewest error/bugs.
 
-# Services
-Services can be used to fetch data from various servers, but can also be used to implement common logic, such that it can be used multiple places. A good example of this would be dialogs. A dialog can be shown anywhere in the application and creating a service for the dialog will make it easy to inject and use anywhere in the application. Similar functionalities should be considered when creating "feature" components, since these components primarily focuses on functionality that requires logic. Try to make the feature specific logic as abstract as possible for better reusability.  
 
-The following types of services can be created:
-* Feature service
-  * service-name.feature.service.ts
-  * Abstract features that can be re-used across multiple component features
-* Data service
-  * service-name.data.service.ts
-  * Service that fetches data from a server
-* Mock Data service
-  * service-name.mock.service.ts
-  * Service that mocks fetching data from a server
+# Dialog
+The dialog is made generic by using the DialogInput model and allows for easy and flexible dialogs to be configured.  
+
+## Dialog Input Model
+
+- title *required*
+  - The title of the dialog
+- type *required*
+  - The type of dialog
+- message *optional*
+  - Dialog content. Used for simple dialogs that don't require anything but a message
+- content *optional*
+  - Dialog content. Used for complex dialogs that require components as content.
+  - Requires using type of custom for the component to be displayed
+- showWarning *optional*
+  - Should a warning be displayed, when action button is clicked?
+- actions *optional*
+  - The actions that can be performed in the dialog

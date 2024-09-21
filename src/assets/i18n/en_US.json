@@ -1,8 +1,11 @@
 {
+	"title": "Salary Calculator",
 	"buttons": {
 		"back": "Back",
-		"confirm": "Calculate my salary",
-		"reset": "Reset"
+		"calculate-salary": "Calculate my salary",
+		"reset": "Reset",
+		"save": "Save",
+		"cancel": "Cancel"
 	},
 	"inputs": {
 		"gross-income": {
