@@ -1,0 +1,10 @@
+<div class="row center">
+	<h1>{{ data.title }}</h1>
+	@if (data.enableSettings) {
+		<app-icon [data]="{ type: 'cog' }" (click)="settingsClick()"></app-icon>
+	}
+</div>
+<ng-template #dialogHost></ng-template>
+<div class="container">
+	<ng-content></ng-content>
+</div>
