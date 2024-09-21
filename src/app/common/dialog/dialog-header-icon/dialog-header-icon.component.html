@@ -1,0 +1,23 @@
+<div class="icon-container">
+	@switch (icon) {
+		@case ('info') {
+			<i class="icon fas fa-info-circle"></i>
+		}
+
+		@case ('warning') {
+			<i class="icon fas fa-exclamation-triangle"></i>
+		}
+
+		@case ('error') {
+			<i class="icon fas fa-exclamation-circle"></i>
+		}
+
+		@case ('success') {
+			<i class="icon fas fa-check-circle"></i>
+		}
+
+		@default {
+			<i class="icon fas" [ngClass]="icon"></i>
+		}
+	}
+</div>

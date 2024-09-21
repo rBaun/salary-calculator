@@ -1,0 +1,24 @@
+@if (isOpen$ | async) {
+	<section class="dialog-overlay">
+		<div class="dialog-body" (click)="$event.stopPropagation()">
+			<app-dialog-header
+				[title]="data.title"
+				(closeClick)="closeDialog(false)"
+				[icon]="icon"></app-dialog-header>
+
+			@if (data.message) {
+				<p class="dialog-message">
+					{{ data.message }}
+				</p>
+			}
+
+			@if (data.type === 'custom' && data.content) {
+				<ng-container *ngComponentOutlet="data.content"></ng-container>
+			}
+
+			<app-dialog-footer
+				[actions]="data.actions!"
+				(actionClick)="onActionClick($event)"></app-dialog-footer>
+		</div>
+	</section>
+}

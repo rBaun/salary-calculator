@@ -1,0 +1,9 @@
+<div class="dialog-footer">
+	@for (item of actions; track $index) {
+		<button
+			class="action-button {{ item.type === 'cancel' ? 'cancel' : '' }}"
+			(click)="actionClick.emit(item.type)">
+			{{ item.label }}
+		</button>
+	}
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+	@if (icon) {
+		<app-dialog-header-icon [icon]="icon"></app-dialog-header-icon>
+	}
+	<button class="close-button" (click)="closeClick.emit()">
+		<i class="fas fa-times"></i>
+	</button>
+</div>
+
+<div class="row">
+	<h2>{{ title }}</h2>
+</div>
