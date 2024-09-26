@@ -6,7 +6,7 @@ import {
 	ViewContainerRef,
 } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { SettingsService } from '../../widgets/calculator-settings/settings.feature.service';
+import { SettingsDialogService } from '../../widgets/calculator-settings/services/settings-dialog.service';
 import { IconComponent } from '../icon/icon.component';
 import { ContainerModel } from './models/container.model';
 
@@ -23,14 +23,14 @@ export class ContainerComponent implements AfterViewInit {
 	@ViewChild('dialogHost', { read: ViewContainerRef, static: true })
 	dialogHost!: ViewContainerRef;
 
-	constructor(private settingsService: SettingsService) {}
+	constructor(private settingsDialogService: SettingsDialogService) {}
 
 	ngAfterViewInit(): void {
-		this.settingsService.setViewContainerRef(this.dialogHost);
+		this.settingsDialogService.setViewContainerRef(this.dialogHost);
 	}
 
 	protected settingsClick = (): void => {
-		this.settingsService
+		this.settingsDialogService
 			.openSettingsDialog(this.dialogHost)
 			.subscribe(result => {
 				console.log('Dialog result:', result);
