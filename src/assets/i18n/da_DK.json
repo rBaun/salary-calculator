@@ -1,7 +1,50 @@
 {
-    "buttons": {
-        "back": "Tilbage",
-        "confirm": "Bekræft",
-        "reset": "Nulstil"
-    }
+	"title": "Lønberegner",
+	"buttons": {
+		"back": "Tilbage",
+		"calculate-salary": "Beregn min løn",
+		"reset": "Nulstil",
+		"save": "Gem",
+		"cancel": "Afbryd"
+	},
+	"inputs": {
+		"gross-income": {
+			"label": "Bruttoindkomst",
+			"placeholder": "Indtast din månedlige bruttoindkomst",
+			"helpText": "Hvis du tjener 10,000kr om måneden og får 4% i pension, så indtaster du 10,000kr",
+			"infoText": "Din totale indkomst før skat, atp eller lignende og eksklusiv eventuel pension din arbejdsgiver betaler"
+		},
+		"pension-percentage": {
+			"label": "Pension %",
+			"placeholder": "Indtast din egen pensionsprocent",
+			"helpText": "Typisk mellem 5-15% af din bruttoindkomst",
+			"infoText": "Det er hvad du betaler til din pension hver måned uden arbejdsgiverbidrag"
+		},
+		"tax-deduction": {
+			"label": "Skattefradrag",
+			"placeholder": "Indtast dit skattefradrag",
+			"helpText": "Dit skattefradrag kan findes på skat.dk. Normalt vil det fremgå af din lønseddel",
+			"infoText": "Dit skattefradrag er det beløb af din bruttoindkomst, der ikke bliver beskattet"
+		},
+		"tax-rate": {
+			"label": "Skattebidrag %",
+			"placeholder": "Indtast dit skattebidrag",
+			"helpText": "Dit skattebidrag kan findes på skat.dk. Normalt vil det fremgå af din lønseddel",
+			"infoText": "Alt der tjenes over skattefradraget beskattes normalt ved 37% og alt over ~51,000kr bliver beskattet yderligere 15%."
+		}
+	},
+	"results": {
+		"net-income": {
+			"before-result": "Du har",
+			"after-result": "udbetalt om måneden!"
+		},
+		"details": {
+			"title": "Se hvordan vi har beregnet din nettoløn",
+			"description": "Vi har beregnet din nettoløn baseret på den information du har givet os. Her er en opdeling af beregningerne, så du kan se hvad dine penge går til.",
+			"gross-income": "Bruttoindkomst",
+			"pension": "Pension",
+			"taxes": "Skat",
+			"remainder": "Tilbageværende efter skat"
+		}
+	}
 }
