@@ -1,5 +1,5 @@
 <div class="row center">
-	<h1>{{ data.title }}</h1>
+	<h1>{{ data.title | transloco }}</h1>
 	@if (data.enableSettings) {
 		<app-icon [data]="{ type: 'cog' }" (click)="settingsClick()"></app-icon>
 	}

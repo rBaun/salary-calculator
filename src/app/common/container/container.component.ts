@@ -5,6 +5,7 @@ import {
 	ViewChild,
 	ViewContainerRef,
 } from '@angular/core';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { SettingsService } from '../../widgets/calculator-settings/settings.feature.service';
 import { IconComponent } from '../icon/icon.component';
 import { ContainerModel } from './models/container.model';
@@ -12,7 +13,7 @@ import { ContainerModel } from './models/container.model';
 @Component({
 	selector: 'app-container',
 	standalone: true,
-	imports: [IconComponent],
+	imports: [IconComponent, TranslocoPipe],
 	templateUrl: './container.component.html',
 	styleUrl: './container.component.scss',
 })

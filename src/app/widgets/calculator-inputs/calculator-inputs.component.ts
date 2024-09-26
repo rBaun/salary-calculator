@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { ButtonComponent } from '../../common/button/button.component';
@@ -18,7 +18,7 @@ import { InputComponent } from '../../common/input/input.component';
 	templateUrl: './calculator-inputs.component.html',
 	styleUrl: './calculator-inputs.component.scss',
 })
-export class CalculatorInputsComponent {
+export class CalculatorInputsComponent implements OnInit {
 	protected grossIncomeControl = new FormControl();
 	protected taxDeductionControl = new FormControl();
 	protected pensionPercentageControl = new FormControl();
@@ -26,7 +26,9 @@ export class CalculatorInputsComponent {
 
 	protected resetButtonData!: ButtonModel;
 
-	constructor(private translocoService: TranslocoService) {
+	constructor(private translocoService: TranslocoService) {}
+
+	ngOnInit(): void {
 		this.setupResetButton();
 	}
 
