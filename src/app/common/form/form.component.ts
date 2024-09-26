@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldComponent } from "./form-field/form-field.component";
 import { FormFieldModel } from './models/form-field.model';
 import { FormModel } from './models/form.model';
@@ -13,6 +13,9 @@ import { FormModel } from './models/form.model';
 })
 export class FormComponent implements OnChanges {
   @Input({ required: true }) data!: FormModel;
+  @Output() formValidityChange = new EventEmitter<boolean>();
+  protected formGroup!: FormGroup;
+  private previousValidity: boolean | null = null;
   
   constructor(private fb: FormBuilder) {}
 
@@ -32,7 +35,13 @@ export class FormComponent implements OnChanges {
         group[field.name] = ['', field.validators || []];
       }
     });
-    this.data.formGroup = this.fb.group(group);
+    this.formGroup = this.fb.group(group);
+
+    // Emit intial form validity
+    this.emitFormValidity();
+
+    // Listen for validity changes and emit the change
+    this.listenForValidityChanges();
   }
 
   private createGroup = (fields: FormFieldModel[]): { [key: string]: any } => {
@@ -43,4 +52,17 @@ export class FormComponent implements OnChanges {
     
     return group;
   }
+
+  private emitFormValidity = (): void => {
+    const currentValidity = this.formGroup.valid;
+
+    // Only emit if the validity has changed
+    if (this.previousValidity === currentValidity) return;
+
+    this.formValidityChange.emit(currentValidity);
+    this.previousValidity = currentValidity;
+  };
+  private listenForValidityChanges = () => {
+    this.formGroup.statusChanges.subscribe(() => this.emitFormValidity())
+  };
 }

@@ -1,9 +1,9 @@
-<form [formGroup]="data.formGroup">
+<form [formGroup]="formGroup">
 	@for (field of data.fields; track $index) {
 		@if (!field.group) {
 			<app-form-field
 				[data]="field"
-				[formGroup]="data.formGroup"></app-form-field>
+				[formGroup]="formGroup"></app-form-field>
 		}
 
 		@if (field.group) {
@@ -12,7 +12,7 @@
 				@for (subField of field.group; track $index) {
 					<app-form-field
 						[data]="subField"
-						[formGroup]="data.formGroup"></app-form-field>
+						[formGroup]="formGroup"></app-form-field>
 				}
 			</fieldset>
 		}

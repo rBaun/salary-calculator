@@ -1,1 +1,3 @@
-<app-form [data]="settingsForm"></app-form>
+<app-form
+	[data]="settingsForm"
+	(formValidityChange)="onFormValidityChange($event)"></app-form>

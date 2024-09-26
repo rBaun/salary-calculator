@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { FormComponent } from "../../common/form/form.component";
+import { FormFieldModel } from '../../common/form/models/form-field.model';
 import { FormModel } from '../../common/form/models/form.model';
 
 @Component({
@@ -10,40 +11,39 @@ import { FormModel } from '../../common/form/models/form.model';
   templateUrl: './calculator-settings.component.html',
   styleUrl: './calculator-settings.component.scss'
 })
-export class CalculatorSettingsComponent {
+export class CalculatorSettingsComponent implements OnInit {
   protected settingsForm!: FormModel;
-  protected languageControl = new FormControl();
-  protected currencyControl = new FormControl();
-  protected includeTooltipsControl = new FormControl();
-  protected includeRetirementSavingsControl = new FormControl();
-  protected includeDetailedResultsControl = new FormControl();
-  protected includeInflationControl = new FormControl();
-  private formGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formGroup = this.formBuilder.group({
-      language: this.languageControl,
-    });
-    this.buildForm();
+  constructor(private formBuilder: FormBuilder) {}
+  
+  ngOnInit(): void {
+    this.buildFormData();
   }
 
-  private buildForm = (): void => {
+  protected onFormValidityChange = (valid: boolean): void => {
+    console.log('Form validity changed:', valid);
+  }
+
+  private buildFormData = (): void => {
     const settings = {
-      formGroup: this.formGroup,
       fields: [
-        {
-          label: 'Language',
-          name: 'language',
-          type: 'select',
-          options: [
-            { label: 'English', value: 'en' },
-            { label: 'Danish', value: 'dk' }
-          ],
-          validators: [Validators.required],
-        }
+        this.buildLanguageControl()
       ]
     } as FormModel;
 
     this.settingsForm = settings;
+  }
+
+  private buildLanguageControl = (): FormFieldModel => {
+    return {
+      label: 'Language',
+      name: 'language',
+      type: 'select',
+      options: [
+        { label: 'English', value: 'en_US' },
+        { label: 'Danish', value: 'da_DK' }
+      ],
+      validators: [Validators.required]
+    } as FormFieldModel;
   }
 }
