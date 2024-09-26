@@ -1,14 +1,18 @@
 <form [formGroup]="data.formGroup">
 	@for (field of data.fields; track $index) {
 		@if (!field.group) {
-			<app-form-field [data]="field"></app-form-field>
+			<app-form-field
+				[data]="field"
+				[formGroup]="data.formGroup"></app-form-field>
 		}
 
 		@if (field.group) {
 			<fieldset [formGroupName]="field.name">
 				<legend>{{ field.label }}</legend>
 				@for (subField of field.group; track $index) {
-					<app-form-field [data]="subField"></app-form-field>
+					<app-form-field
+						[data]="subField"
+						[formGroup]="data.formGroup"></app-form-field>
 				}
 			</fieldset>
 		}

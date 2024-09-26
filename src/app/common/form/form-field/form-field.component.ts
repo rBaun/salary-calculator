@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormFieldModel } from '../models/form-field.model';
 
 @Component({
@@ -11,4 +11,5 @@ import { FormFieldModel } from '../models/form-field.model';
 })
 export class FormFieldComponent {
   @Input({ required: true }) data!: FormFieldModel;
+  @Input({ required: true }) formGroup!: FormGroup;
 }

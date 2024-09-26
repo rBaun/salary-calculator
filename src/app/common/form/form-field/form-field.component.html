@@ -1,43 +1,55 @@
-@switch (data.type) {
-	@case ('checkbox') {
-		@for (option of data.options; track $index) {
-			<input [formControlName]="data.name" type="checkbox" />
-		}
+<div [formGroup]="formGroup">
+	@if (data.label) {
+		<label>{{ data.label }}</label>
 	}
 
-	@case ('radio') {
-		@for (option of data.options; track $index) {
-			<input [formControlName]="data.name" type="radio" />
-		}
-	}
-
-	@case ('select') {
-		<select [formControlName]="data.name">
+	@switch (data.type) {
+		@case ('checkbox') {
 			@for (option of data.options; track $index) {
-				<option [value]="option.value">
-					{{ option.label }}
-				</option>
+				@if (option.label) {
+					<label>{{ option.label }}</label>
+				}
+				<input [formControlName]="data.name" type="checkbox" />
 			}
-		</select>
-	}
+		}
 
-	@case ('text') {
-		<input [formControlName]="data.name" type="text" />
-	}
+		@case ('radio') {
+			@for (option of data.options; track $index) {
+				@if (option.label) {
+					<label>{{ option.label }}</label>
+				}
+				<input [formControlName]="data.name" type="radio" />
+			}
+		}
 
-	@case ('number') {
-		<input [formControlName]="data.name" type="number" />
-	}
+		@case ('select') {
+			<select [formControlName]="data.name">
+				@for (option of data.options; track $index) {
+					<option [value]="option.value">
+						{{ option.label }}
+					</option>
+				}
+			</select>
+		}
 
-	@case ('email') {
-		<textarea [formControlName]="data.name"></textarea>
-	}
+		@case ('text') {
+			<input [formControlName]="data.name" type="text" />
+		}
 
-	@case ('password') {
-		<input [formControlName]="data.name" type="password" />
-	}
+		@case ('number') {
+			<input [formControlName]="data.name" type="number" />
+		}
 
-	@case ('date') {
-		<input [formControlName]="data.name" type="date" />
+		@case ('email') {
+			<textarea [formControlName]="data.name"></textarea>
+		}
+
+		@case ('password') {
+			<input [formControlName]="data.name" type="password" />
+		}
+
+		@case ('date') {
+			<input [formControlName]="data.name" type="date" />
+		}
 	}
-}
+</div>
