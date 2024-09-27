@@ -46,5 +46,38 @@
 			"taxes": "Taxes",
 			"remainder": "Remaining after Taxes and Retirement"
 		}
+	},
+	"settings": {
+		"title": "Settings",
+		"language": {
+			"label": "Language",
+			"options": {
+				"english": "English",
+				"danish": "Danish"
+			}
+		},
+		"currency": {
+			"label": "Currency",
+			"options": {
+				"dkk": "DKK",
+				"usd": "USD",
+				"eur": "EUR"
+			}
+		},
+		"tooltips": {
+			"label": "Tooltips"
+		},
+		"helpTooltip": {
+			"label": "Display help tooltips"
+		},
+		"infoTooltip": {
+			"label": "Display info tooltips"
+		},
+		"includeRetirementSavings": {
+			"label": "Include retirement savings"
+		},
+		"includeDetailedResults": {
+			"label": "Include detailed results"
+		}
 	}
 }
