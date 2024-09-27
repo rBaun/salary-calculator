@@ -1,4 +1,4 @@
-import { DialogActionType } from "./dialog-action.type";
+import { DialogActionType } from './dialog-action.type';
 
 export interface DialogAction {
 	label: string;

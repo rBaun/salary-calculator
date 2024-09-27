@@ -32,7 +32,7 @@ export class DialogComponent {
 		this.isOpen$.next(false);
 		this.dialogService.closeDialog(result);
 	};
-	
+
 	setDialogIcon = () => {
 		// When a custom icon is provided, then always use it
 		if (this.data?.customIcon) {
@@ -48,7 +48,7 @@ export class DialogComponent {
 
 		// Use dialog type as icon by default
 		this.icon = this.data?.type;
-	}
+	};
 
 	protected onActionClick = (actionType: string) => {
 		this.closeDialog(actionType !== 'cancel');

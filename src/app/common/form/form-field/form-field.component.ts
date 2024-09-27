@@ -11,5 +11,5 @@ import { FormFieldModel } from '../models/form-field.model';
 })
 export class FormFieldComponent {
 	@Input({ required: true }) data!: FormFieldModel;
-  @Input({ required: true }) formGroup!: FormGroup;
+	@Input({ required: true }) formGroup!: FormGroup;
 }

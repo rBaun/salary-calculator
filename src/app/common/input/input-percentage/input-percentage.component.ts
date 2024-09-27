@@ -11,7 +11,7 @@ import { InputModel } from '../models/input.model';
 })
 export class InputPercentageComponent {
 	@Input({ required: true }) data!: InputModel;
-	
+
 	protected lowestNumber = 0;
 	protected highestNumber = 100;
 }

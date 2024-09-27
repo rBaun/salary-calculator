@@ -11,6 +11,6 @@ import { DialogHeaderIconComponent } from '../dialog-header-icon/dialog-header-i
 export class DialogHeaderComponent {
 	@Input({ required: true }) title!: string;
 	@Input({ required: true }) icon!: string;
-	@Input() showCloseButton = true; 
+	@Input() showCloseButton = true;
 	@Output() closeClick = new EventEmitter<void>();
 }

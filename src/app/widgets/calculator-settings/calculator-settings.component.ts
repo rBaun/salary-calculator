@@ -34,8 +34,8 @@ export class CalculatorSettingsComponent implements OnInit {
 				this.buildLanguageField(),
 				this.buildCurrencyField(),
 				this.buildTooltipFieldGroup(),
-        this.buildIncludeRetirementSavingsField(),
-        this.buildIncludeDetailedResultsField(),
+				this.buildIncludeRetirementSavingsField(),
+				this.buildIncludeDetailedResultsField(),
 			],
 		} as FormModel;
 
@@ -94,15 +94,15 @@ export class CalculatorSettingsComponent implements OnInit {
 		} as FormFieldModel;
 	};
 
-  private buildTooltipFieldGroup = (): FormFieldModel => {
-    return {
-      label: this.translocoService.translate('settings.tooltips.label'),
-      group: [
-        this.buildDisplayHelpTooltipField(),
-        this.buildDisplayInfoTooltipField(),
-      ],
-    } as FormFieldModel;
-  }
+	private buildTooltipFieldGroup = (): FormFieldModel => {
+		return {
+			label: this.translocoService.translate('settings.tooltips.label'),
+			group: [
+				this.buildDisplayHelpTooltipField(),
+				this.buildDisplayInfoTooltipField(),
+			],
+		} as FormFieldModel;
+	};
 
 	private buildDisplayHelpTooltipField = (): FormFieldModel => {
 		return {

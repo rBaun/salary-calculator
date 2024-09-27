@@ -1,8 +1,5 @@
 import { CommonModule } from '@angular/common';
-import {
-	Component,
-	OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ContainerComponent } from './common/container/container.component';
 import { ContainerModel } from './common/container/models/container.model';

@@ -9,12 +9,7 @@ import { InputComponent } from '../../common/input/input.component';
 @Component({
 	selector: 'app-calculator-inputs',
 	standalone: true,
-	imports: [
-		InputComponent,
-		IconComponent,
-		ButtonComponent,
-		TranslocoModule,
-	],
+	imports: [InputComponent, IconComponent, ButtonComponent, TranslocoModule],
 	templateUrl: './calculator-inputs.component.html',
 	styleUrl: './calculator-inputs.component.scss',
 })
@@ -53,5 +48,5 @@ export class CalculatorInputsComponent implements OnInit {
 			type: 'reset',
 			display: 'both',
 		};
-	}
+	};
 }

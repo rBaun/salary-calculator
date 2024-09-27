@@ -19,7 +19,7 @@ export class DialogService {
 		this.setupDialogComponent(dialogInput);
 
 		return this.dialogResult$.asObservable();
-	}
+	};
 
 	closeDialog = (result: boolean): void => {
 		console.log('dialogService.closeDialog', result);
@@ -28,7 +28,7 @@ export class DialogService {
 
 		// Complete to avoid duplicated emissions
 		this.dialogResult$.complete();
-	}
+	};
 
 	private setupDialogComponent = (dialogInput: DialogModel): void => {
 		if (this.dialogRef) {
@@ -39,5 +39,5 @@ export class DialogService {
 		this.dialogRef.instance.data = dialogInput;
 		this.dialogRef.instance.setDialogIcon();
 		this.dialogRef.instance.isOpen$.next(true);
-	}
+	};
 }

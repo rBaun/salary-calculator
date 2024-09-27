@@ -1,5 +1,5 @@
-import { DialogAction } from "./dialog-action.model";
-import { DialogType } from "./dialog.type";
+import { DialogAction } from './dialog-action.model';
+import { DialogType } from './dialog.type';
 
 export interface DialogModel {
 	title: string;

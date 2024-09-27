@@ -5,12 +5,12 @@ import { IconInfoComponent } from './icon-info/icon-info.component';
 import { IconModel } from './models/icon.model';
 
 @Component({
-  selector: 'app-icon',
-  standalone: true,
-  imports: [IconCogComponent, IconHelpComponent, IconInfoComponent],
-  templateUrl: './icon.component.html',
-  styleUrl: './icon.component.scss'
+	selector: 'app-icon',
+	standalone: true,
+	imports: [IconCogComponent, IconHelpComponent, IconInfoComponent],
+	templateUrl: './icon.component.html',
+	styleUrl: './icon.component.scss',
 })
 export class IconComponent {
-  @Input({ required: true }) data!: IconModel;
+	@Input({ required: true }) data!: IconModel;
 }

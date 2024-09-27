@@ -5,12 +5,16 @@ import { ButtonResetComponent } from './button-reset/button-reset.component';
 import { ButtonModel } from './models/button.model';
 
 @Component({
-  selector: 'app-button',
-  standalone: true,
-  imports: [ButtonBackComponent, ButtonConfirmComponent, ButtonResetComponent],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss'
+	selector: 'app-button',
+	standalone: true,
+	imports: [
+		ButtonBackComponent,
+		ButtonConfirmComponent,
+		ButtonResetComponent,
+	],
+	templateUrl: './button.component.html',
+	styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-  @Input({ required: true }) data!: ButtonModel;
+	@Input({ required: true }) data!: ButtonModel;
 }

@@ -61,14 +61,16 @@ export class FormComponent implements OnChanges {
 		fields: FormFieldModel[]
 	): { [key: string]: any } => {
 		const group: { [key: string]: any } = {};
-        fields.forEach(field => {
-            if (field.group) {
-                group[field.name] = this.fb.group(this.createGroup(field.group));
-            } else {
-                group[field.name] = ['', field.validators || []];
-            }
-        });
-        return group;
+		fields.forEach(field => {
+			if (field.group) {
+				group[field.name] = this.fb.group(
+					this.createGroup(field.group)
+				);
+			} else {
+				group[field.name] = ['', field.validators || []];
+			}
+		});
+		return group;
 	};
 
 	private emitFormValidity = (): void => {
