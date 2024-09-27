@@ -6,7 +6,6 @@ import { DialogAction } from '../../../common/dialog/models/dialog-action.model'
 import { DialogModel } from '../../../common/dialog/models/dialog.model';
 import { CalculatorSettingsComponent } from '../calculator-settings.component';
 
-
 @Injectable({
 	providedIn: 'root',
 })
@@ -24,10 +23,13 @@ export class SettingsDialogService extends DialogService {
 
 		// Setup the dialog input
 		const dialogInput: DialogModel = {
-			title: 'Settings',
+			title: this.translocoService.translate('settings.title'),
 			actions: [
-				{ label: this.translocoService.translate('buttons.cancel'), type: 'cancel' },
-				saveAction
+				{
+					label: this.translocoService.translate('buttons.cancel'),
+					type: 'cancel',
+				},
+				saveAction,
 			],
 			type: 'custom',
 			customIcon: 'fa-cog',
