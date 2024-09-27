@@ -1,5 +1,5 @@
-import { FormFieldModel } from "./form-field.model";
+import { FormFieldModel } from './form-field.model';
 
 export interface FormModel {
-    fields: FormFieldModel[];
+	fields: FormFieldModel[];
 }

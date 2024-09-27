@@ -51,5 +51,10 @@
 		@case ('date') {
 			<input [formControlName]="data.name" type="date" />
 		}
+
+		@case ('toggle') {
+			<!-- TODO: Style this as a slider/toggle for on/off -->
+			<input [formControlName]="data.name" type="checkbox" />
+		}
 	}
 </div>

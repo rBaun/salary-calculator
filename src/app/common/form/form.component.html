@@ -12,7 +12,9 @@
 				@for (subField of field.group; track $index) {
 					<app-form-field
 						[data]="subField"
-						[formGroup]="formGroup"></app-form-field>
+						[formGroup]="
+							nestedFormGroupMap.get(field.name)!
+						"></app-form-field>
 				}
 			</fieldset>
 		}
