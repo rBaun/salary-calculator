@@ -4,6 +4,7 @@ import { TranslocoService } from '@jsverse/transloco';
 import { FormComponent } from '../../common/form/form.component';
 import { FormFieldModel } from '../../common/form/models/form-field.model';
 import { FormModel } from '../../common/form/models/form.model';
+import { SettingsDialogService } from './services/settings-dialog.service';
 
 @Component({
 	selector: 'app-calculator-settings',
@@ -16,7 +17,8 @@ export class CalculatorSettingsComponent implements OnInit {
 	protected settingsForm!: FormModel;
 
 	constructor(
-		private translocoService: TranslocoService
+		private translocoService: TranslocoService,
+		private settingsDialogService: SettingsDialogService
 	) {}
 
 	ngOnInit(): void {
@@ -24,7 +26,7 @@ export class CalculatorSettingsComponent implements OnInit {
 	}
 
 	protected onFormValidityChange = (valid: boolean): void => {
-		console.log('Form validity changed:', valid);
+		this.settingsDialogService.saveActionDisabled$.next(!valid);
 	};
 
 	private buildFormData = (): void => {

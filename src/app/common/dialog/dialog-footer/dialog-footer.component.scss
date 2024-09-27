@@ -24,5 +24,16 @@
 }
 
 .action-button:not(.cancel):hover {
-	background-color: #0056b3;
+	opacity: 0.8;
+}
+
+.action-button:disabled {
+	background-color: #cccccc;
+	color: #666666;
+	cursor: not-allowed;
+}
+
+.action-button.cancel:disabled {
+	background-color: #e0e0e0;
+	color: #999999;
 }

@@ -1,6 +1,6 @@
 import { Injectable, ViewContainerRef } from '@angular/core';
 import { TranslocoService } from '@jsverse/transloco';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { DialogService } from '../../../common/dialog/dialog.service';
 import { DialogAction } from '../../../common/dialog/models/dialog-action.model';
 import { DialogModel } from '../../../common/dialog/models/dialog.model';
@@ -10,6 +10,8 @@ import { CalculatorSettingsComponent } from '../calculator-settings.component';
 	providedIn: 'root',
 })
 export class SettingsDialogService extends DialogService {
+	saveActionDisabled$ = new BehaviorSubject<boolean>(true);
+
 	constructor(private translocoService: TranslocoService) {
 		super();
 	}
@@ -19,6 +21,7 @@ export class SettingsDialogService extends DialogService {
 		const saveAction: DialogAction = {
 			type: 'save',
 			label: this.translocoService.translate('buttons.save'),
+			disabled$: this.saveActionDisabled$,
 		};
 
 		// Setup the dialog input
