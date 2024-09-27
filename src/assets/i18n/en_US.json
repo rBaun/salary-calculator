@@ -49,6 +49,9 @@
 	},
 	"settings": {
 		"title": "Settings",
+		"display": {
+			"label": "Display"
+		},
 		"language": {
 			"label": "Language",
 			"options": {
@@ -64,14 +67,14 @@
 				"eur": "EUR"
 			}
 		},
-		"tooltips": {
-			"label": "Tooltips"
-		},
 		"helpTooltip": {
 			"label": "Display help tooltips"
 		},
 		"infoTooltip": {
 			"label": "Display info tooltips"
+		},
+		"calculations": {
+			"label": "Calculations"
 		},
 		"includeRetirementSavings": {
 			"label": "Include retirement savings"

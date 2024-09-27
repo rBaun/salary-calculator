@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import { TranslocoService } from '@jsverse/transloco';
 import { FormComponent } from '../../common/form/form.component';
 import { FormFieldModel } from '../../common/form/models/form-field.model';
@@ -16,7 +16,6 @@ export class CalculatorSettingsComponent implements OnInit {
 	protected settingsForm!: FormModel;
 
 	constructor(
-		private formBuilder: FormBuilder,
 		private translocoService: TranslocoService
 	) {}
 
@@ -31,15 +30,26 @@ export class CalculatorSettingsComponent implements OnInit {
 	private buildFormData = (): void => {
 		const settings = {
 			fields: [
-				this.buildLanguageField(),
-				this.buildCurrencyField(),
-				this.buildTooltipFieldGroup(),
-				this.buildIncludeRetirementSavingsField(),
-				this.buildIncludeDetailedResultsField(),
+				this.buildDisplaySettingsFieldGroup(),
+				this.buildCalculationSettingsFieldGroup(),
 			],
 		} as FormModel;
 
 		this.settingsForm = settings;
+	};
+
+	//#region Display Settings Fields
+	private buildDisplaySettingsFieldGroup = (): FormFieldModel => {
+		return {
+			name: 'displaySettings',
+			label: this.translocoService.translate('settings.display.label'),
+			group: [
+				this.buildLanguageField(),
+				this.buildCurrencyField(),
+				this.buildDisplayHelpTooltipField(),
+				this.buildDisplayInfoTooltipField(),
+			],
+		} as FormFieldModel;
 	};
 
 	private buildLanguageField = (): FormFieldModel => {
@@ -94,16 +104,6 @@ export class CalculatorSettingsComponent implements OnInit {
 		} as FormFieldModel;
 	};
 
-	private buildTooltipFieldGroup = (): FormFieldModel => {
-		return {
-			label: this.translocoService.translate('settings.tooltips.label'),
-			group: [
-				this.buildDisplayHelpTooltipField(),
-				this.buildDisplayInfoTooltipField(),
-			],
-		} as FormFieldModel;
-	};
-
 	private buildDisplayHelpTooltipField = (): FormFieldModel => {
 		return {
 			label: this.translocoService.translate(
@@ -121,6 +121,19 @@ export class CalculatorSettingsComponent implements OnInit {
 			),
 			name: 'displayInfoTooltip',
 			type: 'toggle',
+		} as FormFieldModel;
+	};
+	//#endregion Display Settings Fields
+
+	//#region Calculation Settings Fields
+	private buildCalculationSettingsFieldGroup = (): FormFieldModel => {
+		return {
+			name: 'calculationSettings',
+			label: this.translocoService.translate('settings.calculations.label'),
+			group: [
+				this.buildIncludeRetirementSavingsField(),
+				this.buildIncludeDetailedResultsField(),
+			],
 		} as FormFieldModel;
 	};
 
@@ -143,4 +156,5 @@ export class CalculatorSettingsComponent implements OnInit {
 			type: 'toggle',
 		} as FormFieldModel;
 	};
+	//#endregion Calculation Settings Fields
 }
