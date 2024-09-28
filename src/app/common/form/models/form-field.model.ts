@@ -7,6 +7,7 @@ export interface FormFieldModel {
 	name: string;
 	label: string;
 	type: FormFieldType;
+	initialValue?: string | number | Date;
 	error?: FormFieldError;
 	options?: FormFieldOption[];
 	validators?: ValidatorFn[];

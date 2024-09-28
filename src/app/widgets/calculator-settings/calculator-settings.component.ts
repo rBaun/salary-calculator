@@ -59,6 +59,7 @@ export class CalculatorSettingsComponent implements OnInit {
 			label: this.translocoService.translate('settings.language.label'),
 			name: 'language',
 			type: 'select',
+			initialValue: 'da_DK',
 			options: [
 				{
 					label: this.translocoService.translate(

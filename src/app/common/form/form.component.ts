@@ -67,7 +67,7 @@ export class FormComponent implements OnChanges {
 					this.createGroup(field.group)
 				);
 			} else {
-				group[field.name] = ['', field.validators || []];
+				group[field.name] = [field.initialValue || '', field.validators || []];
 			}
 		});
 		return group;
