@@ -28,7 +28,6 @@ export class DialogComponent {
 	}
 
 	closeDialog = (result: boolean) => {
-		console.log('DialogComponent.closeDialog', result);
 		this.isOpen$.next(false);
 		this.dialogService.closeDialog(result);
 	};

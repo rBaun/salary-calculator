@@ -33,7 +33,6 @@ export class ContainerComponent implements AfterViewInit {
 		this.settingsDialogService
 			.openSettingsDialog(this.dialogHost)
 			.subscribe(result => {
-				console.log('Dialog result:', result);
 				if (result) {
 					// TODO: save settings
 				}

@@ -22,7 +22,6 @@ export class DialogService {
 	};
 
 	closeDialog = (result: boolean): void => {
-		console.log('dialogService.closeDialog', result);
 		// Broadcast the result
 		this.dialogResult$.next(result);
 
