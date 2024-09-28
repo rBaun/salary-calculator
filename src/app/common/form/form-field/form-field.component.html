@@ -1,8 +1,10 @@
 <div [formGroup]="formGroup">
+	<!-- Label -->
 	@if (data.label) {
 		<label>{{ data.label }}</label>
 	}
 
+	<!-- Input -->
 	@switch (data.type) {
 		@case ('checkbox') {
 			@for (option of data.options; track $index) {
@@ -55,6 +57,16 @@
 		@case ('toggle') {
 			<!-- TODO: Style this as a slider/toggle for on/off -->
 			<input [formControlName]="data.name" type="checkbox" />
+		}
+	}
+
+	<!-- Error Message -->
+	@if (
+		formGroup.get(data.name)?.invalid &&
+		(formGroup.get(data.name)?.dirty || formGroup.get(data.name)?.touched)
+	) {
+		@for (errorKey of getErrorKeys(data.name); track $index) {
+			<span>{{ getErrorMessage(data.name, errorKey) }}</span>
 		}
 	}
 </div>
